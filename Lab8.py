@@ -37,4 +37,11 @@ plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 sobelSum = sobelHorizontal + sobelVertical
 plt.subplot(nrows, ncols,5),plt.imshow(sobelSum, cmap = 'gray')
 plt.title('Sobel Sum'), plt.xticks([]), plt.yticks([])
+
+
+# cann edge detection 
+canny = cv2.Canny(gray_image,100,250)
+plt.subplot(nrows, ncols,6),plt.imshow(canny, cmap = 'gray')
+plt.title('Canny Edge Detection'), plt.xticks([]), plt.yticks([])
+
 plt.show() 
