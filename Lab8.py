@@ -33,4 +33,8 @@ sobelVertical = cv2.Sobel(gray_image,cv2.CV_64F,0,1,ksize=5) # y dir
 plt.subplot(nrows, ncols,4),plt.imshow(sobelVertical, cmap = 'gray')
 plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 
+# sobel x and y
+sobelSum = sobelHorizontal + sobelVertical
+plt.subplot(nrows, ncols,5),plt.imshow(sobelSum, cmap = 'gray')
+plt.title('Sobel Sum'), plt.xticks([]), plt.yticks([])
 plt.show() 
