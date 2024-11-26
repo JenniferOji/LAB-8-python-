@@ -11,7 +11,7 @@ gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # to control the amount of rows and columns 
 nrows = 2
-ncols = 2
+ncols = 3
 
 # the images on top normal and grayscale
 plt.subplot(nrows, ncols,1),plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap = 'gray')
@@ -23,14 +23,14 @@ plt.title('Gray Scale'), plt.xticks([]), plt.yticks([])
 #adding the blur 
 imgOut = cv2.GaussianBlur(gray_image,(3, 3),0)
 
-# gray scale images on the bottom 
-plt.subplot(nrows, ncols,3),plt.imshow(imgOut, cmap = 'gray')
-plt.title('3 x 3'), plt.xticks([]), plt.yticks([])
+# sobel x
+sobelHorizontal = cv2.Sobel(gray_image,cv2.CV_64F,1,0,ksize=5) # x dir
+plt.subplot(nrows, ncols,3),plt.imshow(sobelHorizontal, cmap = 'gray')
+plt.title('Sobel X'), plt.xticks([]), plt.yticks([])
 
-# adding a blur 
-imgOut2 = cv2.GaussianBlur(gray_image,(13, 13),0)
-
-plt.subplot(nrows, ncols,4),plt.imshow(imgOut2, cmap = 'gray')
-plt.title('13 x 13'), plt.xticks([]), plt.yticks([])
+# sobel y
+sobelVertical = cv2.Sobel(gray_image,cv2.CV_64F,0,1,ksize=5) # y dir
+plt.subplot(nrows, ncols,4),plt.imshow(sobelVertical, cmap = 'gray')
+plt.title('Sobel Y'), plt.xticks([]), plt.yticks([])
 
 plt.show() 
