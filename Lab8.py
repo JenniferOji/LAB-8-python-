@@ -3,8 +3,8 @@ import numpy as np
 # from matplotlib import pyplot as plt
 import matplotlib.pyplot as plt
 
-
-img = cv2.imread('ATU.jpg',)
+# image of y choice 
+img = cv2.imread('Beach.jpg',)
 
 # # Convert the image to grayscale
 gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -40,7 +40,7 @@ plt.title('Sobel Sum'), plt.xticks([]), plt.yticks([])
 
 
 # cann edge detection 
-canny = cv2.Canny(gray_image,100,250)
+canny = cv2.Canny(gray_image,150,300)
 plt.subplot(nrows, ncols,6),plt.imshow(canny, cmap = 'gray')
 plt.title('Canny Edge Detection'), plt.xticks([]), plt.yticks([])
 
